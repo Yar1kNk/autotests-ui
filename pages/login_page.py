@@ -2,8 +2,8 @@ from pages.base_page import BasePage
 from playwright.sync_api import Page, expect
 
 class LoginPage(BasePage):
-    def __int__(self, page):
-        super.__init__(page)
+    def __init__(self, page: Page):
+        super().__init__(page)
 
         self.email_input = page.get_by_test_id('login-form-email-input').locator('input')
         self.password_input = page.get_by_test_id('login-form-password-input').locator('input')
@@ -16,7 +16,7 @@ class LoginPage(BasePage):
         expect(self.email_input).to_have_value(email)
 
         self.password_input.fill(password)
-        expect(self.email_input).to_have_value(password)
+        expect(self.password_input).to_have_value(password)
 
 
     def click_login_button(self):

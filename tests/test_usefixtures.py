@@ -11,7 +11,7 @@ def fill_books_databse():
 
 
 @pytest.mark.usefixtures('fill_books_databse')
-def test_read_all_books_in_library(self):
+def test_read_all_books_in_library():
     print("Reading all books")
 
 @pytest.mark.usefixtures(
