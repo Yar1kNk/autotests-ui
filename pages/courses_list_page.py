@@ -1,11 +1,17 @@
 from playwright.sync_api import Page, expect
 
+from components.navigation.navbar_component import NavbarComponent
+from components.navigation.sidebar_component import SidebarComponent
 from pages.base_page import BasePage
+from playwright_authorization import page
 
 
 class CoursesListPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
+
+        self.sidebar = SidebarComponent(page)
+        self.navbar = NavbarComponent(page)
 
         self.courses_title = page.get_by_test_id('courses-list-toolbar-title-text')
         self.create_course_button = page.get_by_test_id('courses-list-toolbar-create-course-button')
@@ -54,6 +60,7 @@ class CoursesListPage(BasePage):
             estimated_time: str
     ):
         expect(self.course_image.nth(index)).to_be_visible()
+
 
         expect(self.course_title.nth(index)).to_be_visible()
         expect(self.course_title.nth(index)).to_have_text(title)
