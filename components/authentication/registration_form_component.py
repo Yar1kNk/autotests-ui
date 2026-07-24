@@ -1,7 +1,6 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 
 from elements.input import Input
-from pages.dashboard_page import DashboardPage
 from components.base_component import BaseComponent
 
 
