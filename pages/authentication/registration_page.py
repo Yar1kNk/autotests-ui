@@ -17,9 +17,9 @@ class RegistrationPage(BasePage):
 
     def click_registration_button(self):
         self.registration_button.click()
-        self.check_current_url()
+        self.check_current_url(re.compile(".*/#/dashboard"))
 
     def click_login_link(self):
-        self.login_link.click(re.compile(".*/#/auth/login"))
+        self.login_link.click()
 
 
