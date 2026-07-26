@@ -23,7 +23,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.14'
 
 
       - name: Install dependencies
@@ -47,9 +47,9 @@ jobs:
           path: gh-pages
 
 
-      - name: Generates Allure Report with history
-        uses: simple-elf/allure-report-action@v1.7
+      - name: Generate Allure Report
         if: always()
+        uses: simple-elf/allure-report-action@master
         with:
           allure_results: allure-results
           allure_history: allure-history
@@ -62,4 +62,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
-  
