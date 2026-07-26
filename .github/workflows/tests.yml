@@ -48,7 +48,7 @@ jobs:
 
 
       - name: Generates Allure Report with history
-        uses: simple-elf/allure-report-action@v1.7
+        uses: simple-elf/allure-report-action@v1.9
         if: always()
         with:
           allure_results: allure-results
@@ -61,4 +61,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: allure-history  
+          publish_dir: allure-history
+
