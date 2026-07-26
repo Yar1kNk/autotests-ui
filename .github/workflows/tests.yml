@@ -1,6 +1,4 @@
 name: UI tests
-
-
 on:
   push:
     branches:
@@ -9,16 +7,13 @@ on:
     branches:
       - main
 
-
 jobs:
   run-tests:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Check out repository
         uses: actions/checkout@v3
-
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -31,7 +26,6 @@ jobs:
           python -m pip install --upgrade pip  
           pip install -r requirements.txt  
           playwright install --with-deps  
-
 
       - name: Run Playwright tests with pytest and generate Allure results
         run: |
@@ -48,7 +42,7 @@ jobs:
 
 
       - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@v1.7
+        uses: simple-elf/allure-report-action@master
         if: always()
         with:
           allure_results: allure-results
@@ -61,4 +55,5 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
+
 
