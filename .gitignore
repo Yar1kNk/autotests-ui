@@ -3,7 +3,7 @@
 
 #python
 .venv
---pycache__
+__pycache__
 
 #allure
 allure-results
