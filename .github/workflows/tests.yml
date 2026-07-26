@@ -48,11 +48,12 @@ jobs:
 
 
       - name: Generates Allure Report with history
-        uses: simple-elf/allure-report-action@v1.9
+        uses: simple-elf/allure-report-action@master
         if: always()
         with:
           allure_results: allure-results
           allure_history: allure-history
+          gh_pages: gh-pages
 
 
       - name: Deploy report to Github Pages
